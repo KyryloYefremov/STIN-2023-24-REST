@@ -1,10 +1,10 @@
 import xmltodict
-import json
 
 
-def xml_to_json(xml_string):
-    return json.dumps(xmltodict.parse(xml_string), indent=4)
-
-
-def json_to_xml(json_string):
-    return xmltodict.unparse(json.loads(json_string), pretty=True)
+def json_to_xml(_json: dict) -> str:
+    """
+    Converts a json to xml
+    :param _json: json to be converted
+    :return: xml string
+    """
+    return xmltodict.unparse(_json, pretty=True)
