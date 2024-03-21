@@ -1,0 +1,27 @@
+name: Python Flask MacOS CI
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12' # Change to the appropriate Python version
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: pytest
