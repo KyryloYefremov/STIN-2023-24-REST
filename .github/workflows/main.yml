@@ -22,6 +22,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+        pip install pytest-cov
 
-    - name: Run tests
-      run: pytest
+    - name: Run tests with coverage
+      run: |
+        pytest --cov-report term-missing --cov='src/'
